@@ -1,0 +1,45 @@
+import math
+class QuadraticEquation:
+	def __init__ (self,a,b,c):
+		self.__a=a
+		self.__b=b
+		self.__c=c
+	def getA(self):
+		return self.__a
+	def getB(self):
+		return self.__b
+	def getC(self):
+		return self.__c
+	def getDiscriminant(self):
+		return (self.__b**2)-(4*self.__a*self.__c)
+		
+	def getRoot1(self):
+		if self.getDiscriminant()<0:
+			return 0
+		else:
+			return (-self.__b+math.sqrt(self.getDiscriminant()))/(2*self.__a)
+			
+	def getRoot2(self):
+		if self.getDiscriminant()<0:
+			return 0
+		else:
+			return (-self.__b-math.sqrt(self.getDiscriminant()))/(2*self.__a)
+			
+a=int(input('enter a:'))
+b=int(input('enter b:'))
+c=int(input('enter c:'))
+obj=QuadraticEquation(a,b,c)
+print('Get a:',obj.getA())
+print('Get b:',obj.getB())
+print('Get c',obj.getC())
+if obj.getDiscriminant()>0:
+	print('real and differnt roots')
+	print('Root1:',obj.getRoot1())
+	print('Root2:',obj.getRoot2()) 
+	
+elif obj.getDiscriminant()==0:
+	print('real and same roots')
+	print(-b/(2*a))
+	
+else:
+	print('complex roots')
